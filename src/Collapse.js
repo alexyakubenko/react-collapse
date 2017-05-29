@@ -158,8 +158,12 @@ export class Collapse extends React.PureComponent {
       return {height: 'auto'};
     }
 
-    if (this.state.currentState === WAITING && !this.state.to) {
-      return {overflow: 'hidden', height: 0};
+    if (this.state.currentState === WAITING) {
+      if (this.state.to) {
+        return {height:'auto'};
+      } else {
+        return {overflow: 'hidden', height: 0};
+      }
     }
 
     return {overflow: 'hidden', height: Math.max(0, height)};
